@@ -8,6 +8,17 @@ use warnings;
     sub current_api_version { return MT->request( 'data_api_current_version' ) }
 }
 
+{
+    package MT;
+    sub current_api_version { return MT->request( 'data_api_current_version' ) }
+    sub user {
+        use File::Basename;
+        if ( dirname($0) eq 'tools' ) {
+            return MT::Author->anonymous;
+        }
+    }
+}
+
 sub _hdlr_resource_object {
     my ( $ctx, $args, $cond ) = @_;
     my $model = $args->{ model } || $args->{ stash } || 'entry';
