@@ -13,8 +13,18 @@ use warnings;
     sub current_api_version { return MT->request( 'data_api_current_version' ) }
     sub user {
         use File::Basename;
-        if ( dirname($0) eq 'tools' ) {
+        if ( dirname($0) =~ m!(?:[/\\]|^)tools$! ) {
+            my $superuser_id = MT->config('ResourceObjectSuperuserID');
+            if ( my $author = MT->model('author')->load( { id => $superuser_id } ) ){
+                return $author;
+            }
             return MT::Author->anonymous;
+        }
+    }
+    sub param {
+        use File::Basename;
+        if ( dirname($0) =~ m!(?:[/\\]|^)tools$! ) {
+            return undef;
         }
     }
 }

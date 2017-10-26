@@ -6,6 +6,10 @@ version: 0.1
 author_name: Alfasado Inc.
 author_link: https://alfasado.net/
 l10n_class: ResourceObject::L10N
+config_settings:
+    ResourceObjectSuperuserID:
+        default: ''
+        updatable: 1
 tags:
     function:
         ResourceObject: $resourceobject::ResourceObject::Tags::_hdlr_resource_object
