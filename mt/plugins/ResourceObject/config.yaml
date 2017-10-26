@@ -2,7 +2,7 @@ name: ResourceObject
 id:   ResourceObject
 key:  ResourceObject
 description: <__trans phrase="Output JSON Resource Object of DataAPI.">
-version: 0.1
+version: 0.2
 author_name: Alfasado Inc.
 author_link: https://alfasado.net/
 l10n_class: ResourceObject::L10N
